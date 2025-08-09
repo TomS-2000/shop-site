@@ -52,7 +52,7 @@ export const useFetchProduct = (url: string) => {
                     setError(null);
                 } else {
                     setProducts(null);
-                    setError('No products found.');
+                    setError('No product found.');
                 }
                 
             } catch (e) {
