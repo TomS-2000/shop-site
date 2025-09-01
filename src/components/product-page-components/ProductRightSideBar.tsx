@@ -2,7 +2,7 @@ import type { Product } from "@/types/product"
 import { ShoppingCart, Star } from "lucide-react"
 import { Button } from "../ui/button"
 import { useCartStore } from "@/stores/cartStore";
-import memolyaPoint from '../../assets/mPointBlack.png'
+import memolyaPoint from '../../assets/memolyaPointBlack.png'
 
 
 const ProductRightSideBar = ({product}: {product: Product}) => {
