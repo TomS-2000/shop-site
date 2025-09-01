@@ -22,7 +22,7 @@ const ProductCard = ({ product }: {product: Product}) => {
         
         <div className='flex justify-between items-end'>
             <div className='flex flex-col'>
-                <div className='font-bold'>{product.price} $</div>
+                <div className='font-bold'>{product.price} €</div>
                 <div className='flex items-center gap-1.5'>
                     <div className='flex'>
                         {[1, 2, 3, 4, 5].map((i) => (

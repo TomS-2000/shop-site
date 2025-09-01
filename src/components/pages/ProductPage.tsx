@@ -2,7 +2,7 @@ import { useFetchProduct } from '@/hooks/useFetch';
 import { useParams } from 'react-router-dom'
 import ImageSelector from '../product-page-components/ImageSelector';
 import ProductRightSideBar from '../product-page-components/ProductRightSideBar';
-import ProductInfo from '../product-page-components/ProductDetails';
+import ProductDetails from '../product-page-components/ProductDetails';
 
 const ProductPage = () => {
 
@@ -13,7 +13,7 @@ const ProductPage = () => {
     <>
         {!error && product ? 
 
-            <section className='grid sm:grid-cols-2 grid-cols-1 justify-center-safe gap-10'>
+            <section className='grid sm:grid-cols-2 grid-cols-1 gap-7'>
 
                 <section className='relative'>
                     <div className='sticky top-22'>
@@ -24,7 +24,7 @@ const ProductPage = () => {
                 
                 <ProductRightSideBar product={product} />
 
-                <ProductInfo product={product} />
+                <ProductDetails product={product} />
 
             </section>
             

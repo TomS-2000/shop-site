@@ -1,52 +1,49 @@
 import type { Product } from "@/types/product"
-import { Star } from "lucide-react"
+import { ShoppingCart, Star } from "lucide-react"
+import { Button } from "../ui/button"
+import { useCartStore } from "@/stores/cartStore";
 
 
 const ProductRightSideBar = ({product}: {product: Product}) => {
+
+    const addProductToCart = useCartStore((state) => state.addProductToCart);
+
     return (
-        <section>
-            <div className='text-lg font-bold'>{product.price} $</div>
+        <section className="pt-4 space-y-4">
+            <div className='text-4xl font-bold'>{product.price} €</div>
             <div>
-                <div className='flex'>
-                    {[1, 2, 3, 4, 5].map((i) => (
-                        <Star
-                            key={i}
-                            className={`stroke-zinc-950 size-5 bg-neutral-700 ${Math.round(product.rating) >= i ? ' fill-zinc-950' : ''}`}
-                        />
-                    ))}
+                <div className='flex gap-2 items-center'>
+                    <div className="flex">
+                        {[1, 2, 3, 4, 5].map((i) => (
+                            <Star
+                                key={i}
+                                className={`stroke-yellow-500 size-7 ${Math.round(product.rating) >= i ? ' fill-yellow-500' : ''}`}
+                            />
+                        ))}
+                    </div>
+                    <p className='text-2xl font-bold'>{product.rating}</p>
                 </div>
-                <p className='font-bold'>{product.rating}</p>
             </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde mollitia ratione ducimus tenetur vitae totam saepe nisi repellendus aperiam quibusdam accusantium maxime recusandae, asperiores quidem est. Vitae porro id debitis!
-            Vitae, rerum corporis provident vero ipsum et iste necessitatibus? Dignissimos quasi repellat numquam modi earum tenetur architecto temporibus dolorem ipsum quae, voluptatem quis id unde dolore et pariatur quia fugit!
-            Quos repellat ratione dolorum suscipit reprehenderit dignissimos neque nihil culpa enim odit numquam dolores tenetur, eum ea natus hic sint impedit accusamus aspernatur pariatur facilis. Quia dolore quam omnis recusandae.
-            Exercitationem itaque perspiciatis, eligendi minus nisi beatae maxime, rerum aspernatur consequuntur tenetur ex neque, esse recusandae est labore unde cupiditate sint quas magni enim ab cumque explicabo maiores soluta. Possimus!
-            Beatae ut, temporibus recusandae velit nulla unde consectetur cum voluptates minus vel ipsum earum porro saepe illum minima itaque natus culpa perspiciatis praesentium animi exercitationem molestias. Cupiditate incidunt amet ratione.
-            Quaerat quod reprehenderit aliquid laboriosam nam itaque voluptas soluta officiis modi odit repellat maxime explicabo inventore similique praesentium tempore neque esse error, labore fugit voluptatibus veniam unde ad earum. Expedita.
-            Voluptates praesentium asperiores libero ratione maxime nulla enim, ea autem obcaecati, ducimus quas expedita architecto consequatur eos nihil adipisci ad exercitationem corrupti fugiat? Placeat numquam labore nulla asperiores? Necessitatibus, natus!
-            Et repudiandae maiores quibusdam totam fugiat doloribus, labore quod laudantium quia tenetur! Nisi eveniet natus et nihil eaque debitis laborum accusantium, molestias quo! Suscipit nulla repellat iusto nemo, eius explicabo.
-            Reiciendis ea maiores perspiciatis doloribus quisquam asperiores necessitatibus dolorem accusantium facere? Voluptatem dolor numquam sed in voluptate consectetur quidem iste explicabo vitae, aspernatur laborum et distinctio facere sit quibusdam natus.
-            Natus, dolorem in ipsa dicta explicabo doloremque ducimus dolores alias quo ipsam, voluptatum blanditiis distinctio? Laborum, soluta tenetur explicabo inventore ex fugiat eius ullam iure libero, repellat, sunt maiores error.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde mollitia ratione ducimus tenetur vitae totam saepe nisi repellendus aperiam quibusdam accusantium maxime recusandae, asperiores quidem est. Vitae porro id debitis!
-            Vitae, rerum corporis provident vero ipsum et iste necessitatibus? Dignissimos quasi repellat numquam modi earum tenetur architecto temporibus dolorem ipsum quae, voluptatem quis id unde dolore et pariatur quia fugit!
-            Quos repellat ratione dolorum suscipit reprehenderit dignissimos neque nihil culpa enim odit numquam dolores tenetur, eum ea natus hic sint impedit accusamus aspernatur pariatur facilis. Quia dolore quam omnis recusandae.
-            Exercitationem itaque perspiciatis, eligendi minus nisi beatae maxime, rerum aspernatur consequuntur tenetur ex neque, esse recusandae est labore unde cupiditate sint quas magni enim ab cumque explicabo maiores soluta. Possimus!
-            Beatae ut, temporibus recusandae velit nulla unde consectetur cum voluptates minus vel ipsum earum porro saepe illum minima itaque natus culpa perspiciatis praesentium animi exercitationem molestias. Cupiditate incidunt amet ratione.
-            Quaerat quod reprehenderit aliquid laboriosam nam itaque voluptas soluta officiis modi odit repellat maxime explicabo inventore similique praesentium tempore neque esse error, labore fugit voluptatibus veniam unde ad earum. Expedita.
-            Voluptates praesentium asperiores libero ratione maxime nulla enim, ea autem obcaecati, ducimus quas expedita architecto consequatur eos nihil adipisci ad exercitationem corrupti fugiat? Placeat numquam labore nulla asperiores? Necessitatibus, natus!
-            Et repudiandae maiores quibusdam totam fugiat doloribus, labore quod laudantium quia tenetur! Nisi eveniet natus et nihil eaque debitis laborum accusantium, molestias quo! Suscipit nulla repellat iusto nemo, eius explicabo.
-            Reiciendis ea maiores perspiciatis doloribus quisquam asperiores necessitatibus dolorem accusantium facere? Voluptatem dolor numquam sed in voluptate consectetur quidem iste explicabo vitae, aspernatur laborum et distinctio facere sit quibusdam natus.
-            Natus, dolorem in ipsa dicta explicabo doloremque ducimus dolores alias quo ipsam, voluptatum blanditiis distinctio? Laborum, soluta tenetur explicabo inventore ex fugiat eius ullam iure libero, repellat, sunt maiores error.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde mollitia ratione ducimus tenetur vitae totam saepe nisi repellendus aperiam quibusdam accusantium maxime recusandae, asperiores quidem est. Vitae porro id debitis!
-            Vitae, rerum corporis provident vero ipsum et iste necessitatibus? Dignissimos quasi repellat numquam modi earum tenetur architecto temporibus dolorem ipsum quae, voluptatem quis id unde dolore et pariatur quia fugit!
-            Quos repellat ratione dolorum suscipit reprehenderit dignissimos neque nihil culpa enim odit numquam dolores tenetur, eum ea natus hic sint impedit accusamus aspernatur pariatur facilis. Quia dolore quam omnis recusandae.
-            Exercitationem itaque perspiciatis, eligendi minus nisi beatae maxime, rerum aspernatur consequuntur tenetur ex neque, esse recusandae est labore unde cupiditate sint quas magni enim ab cumque explicabo maiores soluta. Possimus!
-            Beatae ut, temporibus recusandae velit nulla unde consectetur cum voluptates minus vel ipsum earum porro saepe illum minima itaque natus culpa perspiciatis praesentium animi exercitationem molestias. Cupiditate incidunt amet ratione.
-            Quaerat quod reprehenderit aliquid laboriosam nam itaque voluptas soluta officiis modi odit repellat maxime explicabo inventore similique praesentium tempore neque esse error, labore fugit voluptatibus veniam unde ad earum. Expedita.
-            Voluptates praesentium asperiores libero ratione maxime nulla enim, ea autem obcaecati, ducimus quas expedita architecto consequatur eos nihil adipisci ad exercitationem corrupti fugiat? Placeat numquam labore nulla asperiores? Necessitatibus, natus!
-            Et repudiandae maiores quibusdam totam fugiat doloribus, labore quod laudantium quia tenetur! Nisi eveniet natus et nihil eaque debitis laborum accusantium, molestias quo! Suscipit nulla repellat iusto nemo, eius explicabo.
-            Reiciendis ea maiores perspiciatis doloribus quisquam asperiores necessitatibus dolorem accusantium facere? Voluptatem dolor numquam sed in voluptate consectetur quidem iste explicabo vitae, aspernatur laborum et distinctio facere sit quibusdam natus.
-            Natus, dolorem in ipsa dicta explicabo doloremque ducimus dolores alias quo ipsam, voluptatum blanditiis distinctio? Laborum, soluta tenetur explicabo inventore ex fugiat eius ullam iure libero, repellat, sunt maiores error.</p>
+
+            <p className="text-sm">{product.sku}</p>
+
+            <p className="sm:text-xl text-justify">{product.description}</p>
+
+            <div className="flex gap-5 items-center">
+                <p className={`sm:text-xl font-bold ${product.availabilityStatus === "In Stock" ? "text-green-500" : (product.availabilityStatus === "Low Stock" ? "text-orange-500" : "text-red-500")}`}>
+                {product.availabilityStatus}
+                </p>
+                {product.availabilityStatus === 'Low Stock' && <p className="text-orange-500">Only {product.stock} left in stock!</p>}
+                
+            </div>
+            
+            {product.availabilityStatus !== 'Out of Stock' && <p className="sm:text-xl font-bold">{product.shippingInformation}</p>}
+
+            <Button className="flex gap-6 text-xl sm:text-2xl p-6 w-full items-center cursor-pointer" onClick={() => addProductToCart(product)}>
+                <ShoppingCart className="size-7" />
+                <span className="font-bold">Add to Cart</span>
+            </Button>
+
         </section>
     )
 }
