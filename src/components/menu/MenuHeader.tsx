@@ -1,4 +1,4 @@
-import { ShoppingCart, User, Search } from 'lucide-react'
+import { ShoppingCart, User, Search, SquareX } from 'lucide-react'
 import IconButton from './IconButton'
 import logo from '../../assets/logo_transparent.png'
 import { Link, useNavigate } from 'react-router-dom'
@@ -22,6 +22,11 @@ const MenuHeader = () => {
         }
 
         setShowSearch(prev => !prev);
+    }
+
+    const removeSearch = () => {
+        setSearchQuery('');
+        setShowSearch(false);
     }
 
     const submitSearch = (e : React.KeyboardEvent<HTMLInputElement>) => {
@@ -49,7 +54,7 @@ const MenuHeader = () => {
                 <Search className='size-9 cursor-pointer rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700/90 p-1' onClick={handleSearch}/>
                 <AnimatePresence>
                     {showSearch && 
-                        <motion.div className='absolute z-1 top-11 w-40' initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
+                        <motion.div className='absolute z-1 top-11 w-50 flex items-center gap-2 bg-neutral-200/90 dark:bg-neutral-700/90 p-1 px-2 rounded-lg' initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
                             <Input ref={searchInputRef} 
                             value={searchQuery} 
                             type='text' 
@@ -57,6 +62,7 @@ const MenuHeader = () => {
                             className='bg-white dark:bg-neutral-800' 
                             onChange={(e) => setSearchQuery(e.target.value)}
                             onKeyDown={(e) => submitSearch(e)}/>
+                            <SquareX className='size-10 cursor-pointer hover:text-neutral-300' onClick={removeSearch}/>
                         </motion.div>}
                 </AnimatePresence>
             </div>
