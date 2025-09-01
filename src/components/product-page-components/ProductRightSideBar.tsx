@@ -10,7 +10,7 @@ const ProductRightSideBar = ({product}: {product: Product}) => {
     const addProductToCart = useCartStore((state) => state.addProductToCart);
 
     return (
-        <section className="pt-4 space-y-4">
+        <section className="pt-5 space-y-5">
             <div className='text-4xl font-bold'>{product.price} €</div>
             <div>
                 <div className='flex gap-2 items-center'>
