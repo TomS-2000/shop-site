@@ -29,7 +29,7 @@ const ProductList = ({products, error, total, skip, limit, getNextSite, getPrevi
 
         <div className='mt-4 border-2 rounded-lg w-fit space-x-2'>
             <Button variant='ghost' disabled={skip <= 0} onClick={getPreviousSite}>Back</Button>
-            <span className='text-lg'>{skip/limit + 1} / {Math.ceil(total/limit)} </span>
+            <span className='text-lg'>{total !== 0 ? Math.round(skip/limit + 1) : 0} / {Math.ceil(total/limit)} </span>
             <Button variant='ghost' disabled={skip + limit >= total} onClick={getNextSite}>Next</Button>
         </div>
     </>
