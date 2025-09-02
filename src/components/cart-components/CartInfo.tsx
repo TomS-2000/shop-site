@@ -51,7 +51,10 @@ const CartInfo = () => {
 	return (
 		<section className="md:sticky md:top-24 flex-1 space-y-5 border-1 dark:bg-neutral-700/90 shadow-sm dark:shadow-neutral-700 rounded-xl p-2 md:p-3 px-3 md:px-5 h-fit">
 
-			<h2 className="text-3xl font-bold">Overview</h2>
+			<div className="flex justify-center">
+				<h2 className="text-3xl font-bold">Overview</h2>
+			</div>
+			
 
 			<div className="space-y-3 text-lg md:text-2xl border-t-1 pt-4">
 				

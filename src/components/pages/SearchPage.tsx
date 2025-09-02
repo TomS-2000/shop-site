@@ -13,9 +13,11 @@ const SearchPage = () => {
 	
 	return (
 		<>
-			<div className='text-3xl mb-4'>Search: {formattedQuery(query)} 
-				{total > 0 && <span> Total: {total}</span>}
-			</div>
+			<h2 className='text-3xl font-bold'>
+				Search: '{formattedQuery(query)}'
+			</h2>
+			<p> {total > 0 && <span>Total: {total}</span>}</p>
+			<div className='mb-4'></div>
 			<ProductList products={products} error={error} total={total} skip={skip} limit={limit} getNextSite={getNextSite} getPreviousSite={getPreviousSite}/>
 		</>
 	)

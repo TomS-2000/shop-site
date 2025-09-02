@@ -16,9 +16,11 @@ const MarketPage = () => {
 
 	return (
 		<>
-			<div className='text-3xl mb-4'>{formattedCat(cat)} 
-				{total > 0 && <span> Total: {total}</span>}
-			</div>
+			<h2 className='text-3xl font-bold'>
+				{formattedCat(cat)}  
+			</h2>
+			<p> {total > 0 && <span>Total: {total}</span>}</p>
+			<div className='mb-4'></div>
 			<ProductList products={products} error={error} total={total} skip={skip} limit={limit} getNextSite={getNextSite} getPreviousSite={getPreviousSite}/>
 		</>
 	)
