@@ -1,27 +1,18 @@
-import { useCartStore } from '@/stores/cartStore'
-import { Button } from '../ui/button'
-import { AnimatePresence, motion } from 'motion/react';
+import CartInfo from '../cart-components/CartInfo';
+import CartProductList from '../cart-components/CartProductList';
+import { useCartStore } from '@/stores/cartStore';
 
 const Cart = () => {
-    const cartProducts = useCartStore((state) => state.products);
-    const removeProductFromCart = useCartStore((state) => state.removeProductFromCart);
+
+	const cartProducts = useCartStore((state) => state.products);
 
 	return (
 		<>
-			<div className='text-4xl font-bold mb-4'>Cart</div>
-			<div className='flex flex-col gap-3'>
-				<AnimatePresence>
-				{cartProducts.map(product => (
-					<motion.div layout key={product.id} className='dark:bg-neutral-700/90 rounded-xl p-3 shadow dark:shadow-neutral-700' exit={{ opacity: 0, transition: { duration: 0.15} }}>
-						<div>{product.id}</div>
-						<div>{product.title}</div>
-						<img src={product.thumbnail} className='w-45 h-45'></img>
-						<div>{product.price} $</div>
-						<Button variant='outline' className='w-fit' onClick={() => removeProductFromCart(product.id)}>Remove</Button>
-					</motion.div>
-				))}
-				</AnimatePresence>
-			</div>
+			<h1 className='text-4xl font-bold mb-6'>Cart</h1>
+			<section className='md:flex md:gap-5 lg:gap-8 max-md:space-y-3'>
+				<CartProductList/>
+				{cartProducts.length > 0 && <CartInfo/>}
+			</section>
 		</>
 	)
 }
