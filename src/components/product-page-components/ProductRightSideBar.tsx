@@ -2,7 +2,7 @@ import type { Product } from "@/types/product"
 import { ShoppingCart, Star } from "lucide-react"
 import { Button } from "../ui/button"
 import { useCartStore } from "@/stores/cartStore";
-import memolyaPoint from '../../assets/memolyaPointBlack.png'
+import MemolyaPoints from "./MemolyaPoints";
 
 
 const ProductRightSideBar = ({product}: {product: Product}) => {
@@ -40,14 +40,7 @@ const ProductRightSideBar = ({product}: {product: Product}) => {
             
             {product.availabilityStatus !== 'Out of Stock' && <p className="sm:text-xl font-bold">{product.shippingInformation}</p>}
             
-            <div className="flex justify-between text-xl text-black font-bold bg-purple-100 p-2 px-3 rounded-lg">
-                <p className="">Memolya-Points </p>
-                <div className="flex gap-1 items-center">
-                    <p>+{Math.ceil(product.price)} </p>
-                    <img src={memolyaPoint} className="w-8 h-8 inline-block" alt="Points Icon" />
-                </div>
-                
-            </div>
+            <MemolyaPoints points={product.price}/>
             
             <Button className="flex gap-6 text-xl sm:text-2xl p-6 w-full items-center cursor-pointer" onClick={() => addProductToCart(product)}>
                 <ShoppingCart className="size-7" />

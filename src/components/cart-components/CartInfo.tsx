@@ -3,6 +3,7 @@ import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { useCartStore } from "@/stores/cartStore"
 import { Info } from 'lucide-react';
+import MemolyaPoints from "../product-page-components/MemolyaPoints";
 
 const CartInfo = () => {
 	
@@ -24,20 +25,24 @@ const CartInfo = () => {
 		}
 	}
 
-	const getTotal = useMemo((): number => {
+	const getSubTotal = useMemo((): number => {
 		return cartProducts.reduce((currentTotal, {product, quantity}) => parseFloat((product.price * quantity + currentTotal).toFixed(2)), 0);
 	}, [cartProducts]);
 
 	const getCouponTotal = useMemo(() : number => {
 		if(isValideCoupon && coupon === '10%') {
-			return -parseFloat((getTotal * 10 / 100).toFixed(2));
+			return -parseFloat((getSubTotal * 10 / 100).toFixed(2));
 		}
 		return 0;
-	}, [coupon, isValideCoupon, getTotal]);
+	}, [coupon, isValideCoupon, getSubTotal]);
 
 	const getDeliveryTotal = useMemo((): number => {
-		return getTotal + getCouponTotal >= 50 ? 0 : 3.99;
-	},[getTotal, getCouponTotal]);
+		return getSubTotal + getCouponTotal >= 50 ? 0 : 3.99;
+	},[getSubTotal, getCouponTotal]);
+
+	const getTotal = useMemo(() : number => {
+		return getSubTotal + getDeliveryTotal + getCouponTotal;
+	},[getSubTotal, getDeliveryTotal, getCouponTotal]);
 
 	const toggleInfoShow = () => {
 		setIsInfoShow(!isInfoShow);
@@ -52,12 +57,7 @@ const CartInfo = () => {
 				
 				<div className="flex justify-between items-center">
 					<p className="font-bold">Subtotal</p>
-					<p className="font-bold">{getTotal.toFixed(2)} €</p>
-				</div>
-
-				<div className="flex justify-between items-center">
-					<p className="">Delivery Cost</p>
-					<p className="">{getDeliveryTotal.toFixed(2)} €</p>
+					<p className="font-bold">{getSubTotal.toFixed(2)} €</p>
 				</div>
 
 				{getCouponTotal !== 0 && <div className="flex justify-between items-center">
@@ -65,12 +65,17 @@ const CartInfo = () => {
 					<p className="">{getCouponTotal.toFixed(2)} €</p>
 				</div>}
 
+				<div className="flex justify-between items-center">
+					<p className="">Delivery Cost</p>
+					<p className="">{getDeliveryTotal.toFixed(2)} €</p>
+				</div>
+
 				<div className="flex justify-between items-center border-t-1 pt-4">
 					<div>
 						<p className="font-bold">Total</p>
 						<p className="text-sm">incl. VAT</p>
 					</div>
-					<p className="font-bold">{(getTotal + getDeliveryTotal + getCouponTotal).toFixed(2)} €</p>
+					<p className="font-bold">{getTotal.toFixed(2)} €</p>
 				</div>
 				
 				<div className="relative grid grid-cols-4 items-center gap-3 mt-10 border-t-1 pt-4">
@@ -93,8 +98,11 @@ const CartInfo = () => {
 						)
 					}
 				</div>
-
 			</div>
+			
+			<hr />
+
+			<MemolyaPoints points={(getSubTotal + getCouponTotal)}/>
 
 			<div className="flex justify-center">
 				<Button variant='outline' className="text-3xl font-bold p-6 px-10 cursor-pointer ">Check Out</Button>
