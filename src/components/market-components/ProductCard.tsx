@@ -13,7 +13,7 @@ const ProductCard = ({ product }: {product: Product}) => {
     }
 
     return (
-    <div key={product.id} className='flex flex-col justify-between dark:bg-neutral-700/90 rounded-xl w-76 h-76 px-3 pb-3 pt-1 shadow-sm dark:shadow-neutral-700 hover:shadow-md cursor-pointer'>
+    <div className='flex flex-col justify-between border-1 dark:bg-neutral-700/90 rounded-xl w-76 h-76 px-3 pb-3 pt-1 shadow-sm dark:shadow-neutral-700 hover:shadow-md cursor-pointer'>
         <div className='flex justify-center'>
             <img src={product.thumbnail} className='w-42 h-42'></img>
         </div>

@@ -16,6 +16,7 @@ type ProductListProps = {
 const ProductList = ({products, error, total, skip, limit, getNextSite, getPreviousSite} : ProductListProps) => {
     
     const navigate = useNavigate();
+    
     return (
     <>
         <div className='flex flex-wrap gap-5 justify-center-safe'>
@@ -26,10 +27,10 @@ const ProductList = ({products, error, total, skip, limit, getNextSite, getPrevi
             )) : <div className='text-2xl'>{error}</div>}
         </div>
 
-        <div className='mt-4'>
-            <Button variant='outline' disabled={skip <= 0} onClick={getPreviousSite}>Back</Button>
-            <span className='text-lg'> Side: {skip/limit + 1} / {Math.ceil(total/limit)} </span>
-            <Button variant='outline' disabled={skip + limit >= total} onClick={getNextSite}>Next</Button>
+        <div className='mt-4 border-2 rounded-lg w-fit space-x-2'>
+            <Button variant='ghost' disabled={skip <= 0} onClick={getPreviousSite}>Back</Button>
+            <span className='text-lg'>{skip/limit + 1} / {Math.ceil(total/limit)} </span>
+            <Button variant='ghost' disabled={skip + limit >= total} onClick={getNextSite}>Next</Button>
         </div>
     </>
     )
