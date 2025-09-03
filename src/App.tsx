@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from './components/pages/Layout';
 import Home from './components/pages/Home';
 import MarketPage from './components/pages/MarketPage';
-import SearchPage from './components/pages/SearchPage';
 import About from './components/pages/About';
 import NotFound from './components/pages/NotFound';
 import ProductPage from './components/pages/ProductPage';
@@ -20,8 +19,8 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/category/:cat" element={<MarketPage />} />
-          <Route path="/search/:query" element={<SearchPage />} />
-          <Route path="/search" element={<SearchPage />} />
+          <Route path="/search/:query" element={<MarketPage />} />
+          <Route path="/search" element={<MarketPage />} />
           <Route path="/product/:pid" element={<ProductPage/>} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

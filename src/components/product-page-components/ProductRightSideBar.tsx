@@ -1,8 +1,9 @@
 import type { Product } from "@/types/product"
-import { ShoppingCart, Star } from "lucide-react"
+import { ShoppingCart } from "lucide-react"
 import { Button } from "../ui/button"
 import { useCartStore } from "@/stores/cartStore";
-import MemolyaPoints from "./MemolyaPoints";
+import MemolyaPoints from "../extra-components/MemolyaPoints";
+import StarView from "../extra-components/StarView";
 
 
 const ProductRightSideBar = ({product}: {product: Product}) => {
@@ -14,14 +15,7 @@ const ProductRightSideBar = ({product}: {product: Product}) => {
             <div className='text-4xl font-bold'>{product.price} €</div>
             <div>
                 <div className='flex gap-2 items-center'>
-                    <div className="flex">
-                        {[1, 2, 3, 4, 5].map((i) => (
-                            <Star
-                                key={i}
-                                className={`stroke-yellow-500 size-7 ${Math.round(product.rating) >= i ? ' fill-yellow-500' : ''}`}
-                            />
-                        ))}
-                    </div>
+                    <StarView rating={product.rating} size={7} color='yellow-500'/>
                     <p className='text-2xl font-bold'>{product.rating}</p>
                 </div>
             </div>

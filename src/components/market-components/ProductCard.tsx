@@ -1,7 +1,8 @@
 import { type Product } from '@/types/product'
 import { Button } from '../ui/button'
-import { ShoppingCart, Star } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
+import StarView from '../extra-components/StarView';
 
 const ProductCard = ({ product }: {product: Product}) => {
     
@@ -24,14 +25,7 @@ const ProductCard = ({ product }: {product: Product}) => {
             <div className='flex flex-col'>
                 <div className='font-bold'>{product.price} €</div>
                 <div className='flex items-center gap-1.5'>
-                    <div className='flex'>
-                        {[1, 2, 3, 4, 5].map((i) => (
-                            <Star
-                                key={i}
-                                className={`stroke-zinc-950 size-5 ${Math.round(product.rating) >= i ? ' fill-zinc-950' : ''}`}
-                            />
-                        ))}
-                    </div>
+                    <StarView rating={product.rating} size={5} color='zinc-950'/>
                     <p className='font-bold'>{product.rating}</p>
                 </div>
             </div>

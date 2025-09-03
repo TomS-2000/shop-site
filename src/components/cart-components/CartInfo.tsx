@@ -3,16 +3,16 @@ import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { useCartStore } from "@/stores/cartStore"
 import { Info } from 'lucide-react';
-import MemolyaPoints from "../product-page-components/MemolyaPoints";
+import MemolyaPoints from "../extra-components/MemolyaPoints";
 
 const CartInfo = () => {
 	
 	const cartProducts = useCartStore((state) => state.products);
 
-	const [couponInput, setCouponInput] = useState("");
-	const [coupon, setCoupon] = useState("");
-	const [isValideCoupon, setIsValidCoupon] = useState(false);
-	const [isInfoShow, setIsInfoShow] = useState(false);
+	const [couponInput, setCouponInput] = useState<string>("");
+	const [coupon, setCoupon] = useState<string>("");
+	const [isValideCoupon, setIsValidCoupon] = useState<boolean>(false);
+	const [isInfoShow, setIsInfoShow] = useState<boolean>(false);
 
 	const checkCoupon = () => {
 		if(couponInput) {

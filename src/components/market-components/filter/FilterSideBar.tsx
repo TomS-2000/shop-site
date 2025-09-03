@@ -1,7 +1,18 @@
+import AvailableFilter from "./AvailableFilter"
+import BrandFilter from "./BrandFilter"
+import PriceFilter from "./PriceFilter"
+import RatingFilter from "./RatingFilter"
+
 const FilterSideBar = () => {
     return (
-        <section>
-            FilterSideBar
+        <section className="max-md:hidden h-fit">
+            <div className="space-y-4">
+                <PriceFilter/>
+                <RatingFilter/>
+                <BrandFilter/>
+                <AvailableFilter/>
+            </div>
+            
         </section>
     )
 }

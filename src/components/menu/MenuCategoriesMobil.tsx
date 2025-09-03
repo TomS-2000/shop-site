@@ -2,6 +2,7 @@ import { Menu } from 'lucide-react'
 import { Sidebar, SidebarContent, SidebarHeader, SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, useSidebar } from "@/components/ui/sidebar";
 import { Link } from "react-router-dom";
 import {categories} from '../../stores/categories'
+import { ScrollArea } from '../ui/scroll-area';
 
 const MenuCategoriesMobil = () => {
 
@@ -12,14 +13,16 @@ const MenuCategoriesMobil = () => {
         <Menu className='size-7 cursor-pointer' onClick={toggleSidebar}/>
         
         <Sidebar className="h-full flex flex-col w-40">
+            <ScrollArea className="h-screen">
             <SidebarHeader className="px-4 py-2 border-b">
             Categories
             </SidebarHeader>
 
             <SidebarContent className="flex-1 overflow-hidden">
                 <SidebarGroup>
-                    <SidebarGroupContent>
+                    <SidebarGroupContent> 
                         <SidebarMenu>
+                        
                         {categories.map((category) => (
                             <SidebarMenuItem key={category.category}>
                             <SidebarMenuButton asChild>
@@ -33,6 +36,7 @@ const MenuCategoriesMobil = () => {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
+            </ScrollArea>
         </Sidebar>
     </>
     )
