@@ -2,7 +2,7 @@ import { type Product } from '@/types/product'
 import { Button } from '../ui/button'
 import { ShoppingCart } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
-import StarView from '../extra-components/StarView';
+import StarView from '../extra/StarView';
 
 const ProductCard = ({ product }: {product: Product}) => {
     

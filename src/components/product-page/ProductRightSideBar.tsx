@@ -2,8 +2,8 @@ import type { Product } from "@/types/product"
 import { ShoppingCart } from "lucide-react"
 import { Button } from "../ui/button"
 import { useCartStore } from "@/stores/cartStore";
-import MemolyaPoints from "../extra-components/MemolyaPoints";
-import StarView from "../extra-components/StarView";
+import MemolyaPoints from "../extra/MemolyaPoints";
+import StarView from "../extra/StarView";
 
 
 const ProductRightSideBar = ({product}: {product: Product}) => {

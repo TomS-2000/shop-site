@@ -1,4 +1,4 @@
-import StarView from '@/components/extra-components/StarView'
+import StarView from '@/components/extra/StarView'
 import { Button } from '@/components/ui/button';
 import { FilterContext } from '@/context/FilterContext';
 import { useContext } from 'react';

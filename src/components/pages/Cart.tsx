@@ -1,5 +1,5 @@
-import CartInfo from '../cart-components/CartInfo';
-import CartProductList from '../cart-components/CartProductList';
+import CartInfo from '../cart/CartInfo';
+import CartProductList from '../cart/CartProductList';
 import { useCartStore } from '@/stores/cartStore';
 
 const Cart = () => {

@@ -3,7 +3,7 @@ import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { useCartStore } from "@/stores/cartStore"
 import { Info } from 'lucide-react';
-import MemolyaPoints from "../extra-components/MemolyaPoints";
+import MemolyaPoints from "../extra/MemolyaPoints";
 
 const CartInfo = () => {
 	

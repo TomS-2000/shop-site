@@ -1,8 +1,8 @@
 import { useFetchProduct } from '@/hooks/useFetch';
 import { useParams } from 'react-router-dom'
-import ImageSelector from '../product-page-components/ImageSelector';
-import ProductRightSideBar from '../product-page-components/ProductRightSideBar';
-import ProductDetails from '../product-page-components/ProductDetails';
+import ImageSelector from '../product-page/ImageSelector';
+import ProductRightSideBar from '../product-page/ProductRightSideBar';
+import ProductDetails from '../product-page/ProductDetails';
 
 const ProductPage = () => {
 
