@@ -25,7 +25,7 @@ const ProductCard = ({ product }: {product: Product}) => {
             <div className='flex flex-col'>
                 <div className='font-bold'>{product.price} €</div>
                 <div className='flex items-center gap-1.5'>
-                    <StarView rating={product.rating} size={5} color='zinc-950'/>
+                    <StarView rating={product.rating} size={5} color='fill-zinc-950' strokeColor='stroke-zinc-950'/>
                     <p className='font-bold'>{product.rating}</p>
                 </div>
             </div>

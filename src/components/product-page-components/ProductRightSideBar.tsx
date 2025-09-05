@@ -15,7 +15,7 @@ const ProductRightSideBar = ({product}: {product: Product}) => {
             <div className='text-4xl font-bold'>{product.price} €</div>
             <div>
                 <div className='flex gap-2 items-center'>
-                    <StarView rating={product.rating} size={7} color='yellow-500'/>
+                    <StarView rating={product.rating} size={7} color='fill-yellow-500' strokeColor='stroke-yellow-500'/>
                     <p className='text-2xl font-bold'>{product.rating}</p>
                 </div>
             </div>
