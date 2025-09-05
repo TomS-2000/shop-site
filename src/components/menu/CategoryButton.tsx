@@ -6,7 +6,7 @@ const CategoryButton = ({title, ...props} : {title: string} & React.ComponentPro
   	
 	return (
 		<Link to={`/category/${title.toLowerCase()}`}>
-			<Button {...props} variant='ghost' className='hover:bg-neutral-200/90 dark:hover:bg-neutral-700/90 cursor-pointer font-bold text-lg'>{title}</Button>
+			<Button {...props} variant='link' className='hover:bg-neutral-50/90 dark:hover:bg-neutral-800/90 cursor-pointer font-bold text-base'>{title}</Button>
 		</Link>
   	)
 }
