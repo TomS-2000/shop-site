@@ -1,6 +1,6 @@
 import StarView from '@/components/extra-components/StarView'
 import { Button } from '@/components/ui/button';
-import { FilterContext } from '@/context/filterContext';
+import { FilterContext } from '@/context/FilterContext';
 import { useContext } from 'react';
 
 const RatingFilter = () => {

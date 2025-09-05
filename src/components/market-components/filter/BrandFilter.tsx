@@ -1,7 +1,7 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { FilterContext } from '@/context/filterContext';
+import { FilterContext } from '@/context/FilterContext';
 import { useContext } from 'react'
 
 const BrandFilter = () => {

@@ -6,7 +6,7 @@ import { categories } from '@/stores/categories';
 import FilterSideBar from '../market-components/filter/FilterSideBar';
 import FilterMobile from '../market-components/filter/FilterMobile';
 import { useEffect, useMemo, useState } from 'react';
-import { FilterContext } from '@/context/filterContext';
+import { FilterContext } from '@/context/FilterContext';
 
 const MarketPage = () => {
 

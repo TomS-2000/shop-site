@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { FilterContext } from "@/context/filterContext";
+import { FilterContext } from "@/context/FilterContext";
 import { useContext } from "react";
 import { ArrowDownWideNarrow, ArrowUpNarrowWide} from 'lucide-react';
 
