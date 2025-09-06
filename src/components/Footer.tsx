@@ -4,8 +4,8 @@ import { Button } from './ui/button'
 const Footer = () => {
 	return (
 		<footer className='bg-stone-200 dark:bg-stone-800 px-3'>
-			<Link to="/shop-site/about"><Button variant='link'>About</Button></Link>
-			<Link to="/shop-site/contact"><Button variant='link'>Contact</Button></Link>
+			<Link to="/about"><Button variant='link'>About</Button></Link>
+			<Link to="/contact"><Button variant='link'>Contact</Button></Link>
 		</footer>
 	)
 }

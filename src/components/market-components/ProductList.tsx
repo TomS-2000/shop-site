@@ -21,7 +21,7 @@ const ProductList = ({products, error, total, skip, limit, getNextSite, getPrevi
     <>
         <div className='flex flex-wrap gap-5 justify-center-safe'>
             {!error ? products.map(product => (
-                <div onClick={() => navigate(`/shop-site/product/${product.id}`)} key={product.id}>
+                <div onClick={() => navigate(`/product/${product.id}`)} key={product.id}>
                     <ProductCard  product={product}/>
                 </div>
             )) : <div className='text-2xl'>{error}</div>}

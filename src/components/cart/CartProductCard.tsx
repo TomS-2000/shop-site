@@ -18,7 +18,7 @@ const CartProductCard = ({product, quantity} : CartProduct) => {
     const navigate = useNavigate();
     
     const showProductPage = (productId: number) => {
-        navigate(`/shop-site/product/${productId}`);
+        navigate(`/product/${productId}`);
     }
 
     return (
