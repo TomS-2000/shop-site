@@ -1,4 +1,4 @@
-import memolyaPoint from '../../assets/memolyaPointBlack.png';
+import memolyaPoint from '@/assets/memolyaPointBlack.png';
 
 const MemolyaPoints = ({points} : {points: number}) => {
   

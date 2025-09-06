@@ -1,6 +1,6 @@
 import { ShoppingCart, User, Search, SquareX } from 'lucide-react'
 import IconButton from './IconButton'
-import logo from '../../assets/logo_transparent.png'
+import logo from '@/assets/logo_transparent.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { Input } from '../ui/input'
 import { useEffect, useRef, useState } from 'react'

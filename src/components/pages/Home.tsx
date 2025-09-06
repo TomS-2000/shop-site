@@ -1,4 +1,4 @@
-import action10Img from '../../assets/action10Banner.png'
+import action10Img from '@/assets/action10Banner.png'
 import SaleTab from '../home/SaleTab';
 import RecommendationTab from '../home/RecommendationTab';
 
