@@ -14,11 +14,16 @@ export const useSkip = (query: string) => {
 		window.scrollTo(0, 0);
 	}, [skip, limit]);
 
+	const getFirstSite = useCallback(() => {
+		setSkip(0);
+		window.scrollTo(0, 0);
+	}, []);
+
 	useEffect(() => {
 		setSkip(0);
 	},[query]);
 
-	return {skip, limit, getNextSite, getPreviousSite}
+	return {skip, limit, getNextSite, getPreviousSite, getFirstSite};
 }
 
 export default useSkip

@@ -5,6 +5,7 @@ import RatingFilter from './RatingFilter';
 import AvailableFilter from './AvailableFilter';
 import BrandFilter from './BrandFilter';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import DeselectFilter from './DeselectFilter';
 
 const FilterMobile = () => {
     
@@ -20,6 +21,7 @@ const FilterMobile = () => {
                 <section className='fixed z-9 top-16 right-1 grid gap-5 bg-neutral-50/90 dark:bg-neutral-700/90 border-1 rounded-lg mb-4'>
                     <ScrollArea className='h-[70vh] w-[70vw] grid gap-5'>
                         <div className='grid gap-5 p-4'>
+                            <DeselectFilter/>
                             <PriceFilter/>
                             <RatingFilter/>
                             <BrandFilter/>

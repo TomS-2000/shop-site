@@ -24,17 +24,17 @@ const PriceFilter = () => {
             <div className="space-y-2">
 
                 <Label htmlFor="min">min</Label>
-                <Input id="min" type="number" placeholder="min" value={minPrice ?? ''} onChange={(e) => setMinPrice(Number(e.target.value) || null)}/>
+                <Input id="min" type="number" placeholder="min" value={minPrice ?? ''} onChange={(e) => setMinPrice(e.target.value === '' ? null : Number(e.target.value))}/>
 
                 <Label htmlFor="max">max</Label>
-                <Input id="max" type="number" placeholder="max" value={maxPrice ?? ''} onChange={(e) => setMaxPrice(Number(e.target.value) || null)}/>
- 
+                <Input id="max" type="number" placeholder="max" value={maxPrice ?? ''} onChange={(e) => setMaxPrice(e.target.value === '' ? null : Number(e.target.value))}/>
+
                 <div className="flex items-center gap-4">
                     <p className="text-base font-bold">Order</p>
-                    <Button variant="outline" title="Sort Ascending" className={`cursor-pointer ${priceOrder === 'asc' ? 'bg-accent dark:bg-input/50' : ''}`} onClick={() => setOrder('asc')}>
-                        <ArrowUpNarrowWide  />
+                    <Button variant="outline" title="Sort Ascending" className={`cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 ${priceOrder === 'asc' ? 'bg-neutral-200 dark:bg-neutral-700' : ''}`} onClick={() => setOrder('asc')}>
+                        <ArrowUpNarrowWide />
                     </Button>
-                    <Button variant="outline" title="Sort Descending" className={`cursor-pointer ${priceOrder === 'desc' ? 'bg-accent dark:bg-input/50' : ''}`} onClick={() => setOrder('desc')}>
+                    <Button variant="outline" title="Sort Descending" className={`cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 ${priceOrder === 'desc' ? 'bg-neutral-200 dark:bg-neutral-700' : ''}`} onClick={() => setOrder('desc')}>
                         <ArrowDownWideNarrow />
                     </Button>
                 </div>

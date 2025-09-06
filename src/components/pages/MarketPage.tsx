@@ -20,8 +20,8 @@ const MarketPage = () => {
 		url = `https://dummyjson.com/products/search?q=${query ? query : ''}`;
 	}
 
-	const { skip, limit, getNextSite, getPreviousSite} = useSkip(cat ?? '');
-	const { products, error, total } = useFetch(cat ? `${url}?limit=0` : `${url}&limit=0`);
+	const { skip, limit, getNextSite, getPreviousSite, getFirstSite} = useSkip(cat ?? '');
+	const { products, error } = useFetch(cat ? `${url}?limit=0` : `${url}&limit=0`);
 
 	const formattedCat = (cat: string | undefined) => cat ? cat[0].toUpperCase() + cat.slice(1) : "No Category";
 	const formattedQuery = (query: string | undefined) => query ? query[0].toUpperCase() + query.slice(1) : "<all>";
@@ -50,13 +50,44 @@ const MarketPage = () => {
 		setAvailable
 	};
 
+	const getFilteredProducts = useMemo(() => {
+		let filtered = products;
+
+		if (minPrice !== null) {
+			filtered = filtered.filter(p => p.price >= minPrice);
+		}
+		if (maxPrice !== null) {
+			filtered = filtered.filter(p => p.price <= maxPrice);
+		}
+		if (rating !== null) {
+			filtered = filtered.filter(p => p.rating >= rating);
+		}
+		if (available) {
+			filtered = filtered.filter(p => p.stock > 0);
+		}
+		if (brands.some(b => b.checked)) {
+			filtered = filtered.filter(p => brands.some(b => b.checked && (b.brand === p.brand || (b.brand === 'No Brand' && !p.brand))));
+		}
+		if (priceOrder) {
+			filtered = [...filtered].sort((a, b) => priceOrder === 'asc' ? a.price - b.price : b.price - a.price);
+		}
+
+		return filtered;
+	}, [products, minPrice, maxPrice, rating, available, brands, priceOrder]);
+
+	const totalFiltered = useMemo(() => getFilteredProducts.length, [getFilteredProducts]);
+
+	const getCurrentProducts = useMemo(() => {
+		return getFilteredProducts.filter((_, index) => index < skip + limit && index >= skip);
+	}, [skip, limit, getFilteredProducts]);
+
 	useEffect(() => {
 		setBrands(Array.from(new Set(products.map(p => p.brand))).map(brand => ({ brand: brand ?? 'No Brand', checked: false })).sort((a, b) => a.brand.localeCompare(b.brand)));
 	}, [products]);
 
-	const getCurrentProducts = useMemo(() => {
-		return products.filter((_, index) => index < skip + limit && index >= skip);
-	}, [products, skip, limit]);
+	useEffect(() => {
+		getFirstSite();
+	}, [totalFiltered, getFirstSite]);
 
 	return (
 		<section className='md:grid md:grid-cols-[1fr_7fr] md:gap-5'>
@@ -66,8 +97,6 @@ const MarketPage = () => {
 			</FilterContext>
 			
 			<section>
-				{available && <span>Available</span>}
-
 				{cat ? (
 					<h2 className='text-3xl font-bold'>
 						{formattedCat(cat)}  
@@ -77,9 +106,9 @@ const MarketPage = () => {
 						Search: '{formattedQuery(query)}'
 					</h2>
 				)}
-				<p> {total > 0 && <span>Total: {total}</span>}</p>
+				<p> {totalFiltered > 0 && <span>Total: {totalFiltered}</span>}</p>
 				<div className='mb-4'></div>
-				<ProductList products={getCurrentProducts} error={error} total={total} skip={skip} limit={limit} getNextSite={getNextSite} getPreviousSite={getPreviousSite}/>
+				<ProductList products={getCurrentProducts} error={error} total={totalFiltered} skip={skip} limit={limit} getNextSite={getNextSite} getPreviousSite={getPreviousSite}/>
 			</section>
 		</section>
 	)
