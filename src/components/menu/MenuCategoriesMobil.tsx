@@ -31,7 +31,7 @@ const MenuCategoriesMobil = () => {
                         {subCategories.map((subCategory) => (
                             <SidebarMenuItem key={subCategory.category}>
                             <SidebarMenuButton asChild>
-                                <Link to={`/category/${subCategory.category.toLowerCase()}`} onClick={toggleSidebar}>
+                                <Link to={`/shop-site/category/${subCategory.category.toLowerCase()}`} onClick={toggleSidebar}>
                                 <span>{subCategory.category}</span>
                                 </Link>
                             </SidebarMenuButton>

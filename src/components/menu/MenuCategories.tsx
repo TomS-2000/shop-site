@@ -45,7 +45,7 @@ const MenuCategories = () => {
                     )}
 
                     {subCategories.length === 1 &&
-                        <Link to={`/category/${subCategories[0].category.toLowerCase()}`} onClick={() => setActiveCategory(null)}>
+                        <Link to={`/shop-site/category/${subCategories[0].category.toLowerCase()}`} onClick={() => setActiveCategory(null)}>
                             <Button variant='ghost' className='hover:bg-neutral-200/90 dark:hover:bg-neutral-700/90 cursor-pointer font-bold text-lg'>{category}</Button>
                         </Link>
                     }
