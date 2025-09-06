@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Layout from './components/pages/Layout';
 import Home from './components/pages/Home';
 import MarketPage from './components/pages/MarketPage';
@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <ThemeProvider defaultTheme='system'>
-      <BrowserRouter basename="/shop-site">
+      <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
     </ThemeProvider>
   )
 }
