@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://toms-2000.github.io/shop-site",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
