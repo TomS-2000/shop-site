@@ -1,8 +1,32 @@
 # Shop Site
 
 ## Einleitung
+Dieses Projekt ist ein fiktiver Webshop, der als Eigenprojekt zur Vertiefung von Frontend-Kenntnissen umgesetzt wurde.  
+Im Fokus standen modernes UI-Design, Nutzerfreundlichkeit sowie responsive Gestaltung für **Mobile und Desktop**.  
+Darüber hinaus wurde ein **Dark- und Light-Theme** integriert.  
 
-## Inhalt
+Die Produktdaten werden dynamisch über die [DummyJSON API](https://dummyjson.com/docs/products#products-single) eingebunden.
+
+Ziel: Vertiefung von Kenntnissen in Frontend-Technologien und UI-Design.
+
+Demo: https://toms-2000.github.io/shop-site/
+
+## Features
+- Responsives Design (Mobile, Tablet, Desktop)
+- Dark-/Light-Theme
+- API-Anbindung mit DummyJSON
+- Moderne UI-Komponenten (Tailwind CSS, Shadcn, Motion)
+- Fokus auf Nutzerfreundlichkeit und UI/UX
+
+## Technologien
+- React
+- TypeScript
+- Tailwind CSS
+- Shadcn
+- Motion
+
+## Hinweis
+Funktionen wie **Checkout** und **Benutzeranmeldung** wurden in diesem Projekt bewusst nicht umgesetzt, da der Schwerpunkt auf der Entwicklung des Frontend-Designs (bzw. der Frontend-Funktionen) und der UI/UX-Elemente lag. Die entsprechenden Buttons sind daher ohne Funktion und dienen nur als Platzhalter.
 
 ## Projekt Setup
 
@@ -21,14 +45,14 @@ npm run dev
 npm build
 ```
 
-## Verwendete Frameworks und Bibliotheken
+## Hauptsächlich verwendete Frameworks und Bibliotheken
 
-Motion:
+Motion (Animationen):
 ```
 npm install motion
 ```
 
-Tailwind für shadcn:
+Tailwind für Shadcn:
 ```
 npm install tailwindcss @tailwindcss/vite
 npm install -D @types/node
@@ -39,7 +63,7 @@ React-Router-Dom:
 npm install react-router-dom
 ```
 
-Zustand:
+Zustand (State-Management Warenkorb):
 ```
 npm install zustand
 ```
