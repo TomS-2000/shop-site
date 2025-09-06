@@ -16,15 +16,15 @@ const App = () => {
     <ThemeProvider defaultTheme='system'>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/shop-site" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/category/:cat" element={<MarketPage />} />
-          <Route path="/search/:query" element={<MarketPage />} />
-          <Route path="/search" element={<MarketPage />} />
-          <Route path="/product/:pid" element={<ProductPage/>} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/shop-site/category/:cat" element={<MarketPage />} />
+          <Route path="/shop-site/search/:query" element={<MarketPage />} />
+          <Route path="/shop-site/search" element={<MarketPage />} />
+          <Route path="/shop-site/product/:pid" element={<ProductPage/>} />
+          <Route path="/shop-site/about" element={<About />} />
+          <Route path="/shop-site/contact" element={<Contact />} />
+          <Route path="/shop-site/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

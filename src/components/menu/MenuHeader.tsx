@@ -18,7 +18,7 @@ const MenuHeader = () => {
 
     const handleSearch = () => {
         if(showSearch && searchQuery.trim()) {
-            navigate(`/search/${searchQuery}`);
+            navigate(`/shop-site/search/${searchQuery}`);
         }
 
         setShowSearch(prev => !prev);
@@ -31,7 +31,7 @@ const MenuHeader = () => {
 
     const submitSearch = (e : React.KeyboardEvent<HTMLInputElement>) => {
         if(searchQuery.trim() && e.key === 'Enter') {
-            navigate(`/search/${searchQuery}`);
+            navigate(`/shop-site/search/${searchQuery}`);
         }
     }
 

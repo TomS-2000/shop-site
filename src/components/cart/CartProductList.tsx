@@ -19,7 +19,7 @@ const CartProductList = () => {
                 <div className='flex flex-col items-center text-center space-y-10'>
                     <p className='text-2xl'>No products in the shopping cart.</p>
                     <p className='text-xl'>Add products to your shopping cart.</p>
-                    <Button variant='outline' className='text-xl p-5' onClick={() => navigate('/search')}>Continue shopping</Button>
+                    <Button variant='outline' className='text-xl p-5' onClick={() => navigate('/shop-site/search')}>Continue shopping</Button>
                 </div>}
         </section>
     )
